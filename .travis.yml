@@ -8,6 +8,11 @@ addons:
 
 before_install:
   - python -m pip install --upgrade pip
+script: 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./travis/run_on_pull_requests;fi'
+branches:
+  only:
+    - main
+
 install:
   - pip install -r requirements.txt
   - pip3 install --upgrade pip
@@ -15,4 +20,10 @@ install:
   script:
  - python -m unittest tests.test_dice
 
+ jobs:
+  include:
+    - stage: test
+      script: python -m unittest tests.test_dice
+  
+    
 
