@@ -36,8 +36,6 @@ jobs:
       script: 'curl http://sf-stages-production.herokuapp.com'
 
 notifications:
-  slack: praxisunal:EUjdMHMZdMNbGqln5FEkfJh3
-after_success:
-- echo 'Success!'
-after_failure:
-- echo 'Failure'
+  slack:
+    secure: WiNq3bZ9thLOuHqq6W5D3hlGghT7Ifiy8yxDc4AXPZ7nQoRn6ETre23RHilV8TLfUKCNQ0JYeFA2mSs2zmzPaOQJw1VHsTqeWEM7UVYlDOYIYHgVz4A0xK6RvdeHClX4QdrElLtPqrIOM5PnQZIShjCWJGwiSF+Ov/l5OEtVdnxKtH0RYPg1NWHr7W5NFGR6qD2WI4CTj1Q2nkXmt1fMvX63th61gNBdQR+1qYefXsMZCUtVsPk3gnrHLqYksEUj4dTJF2t7gRJPqMnQM1M+jax+ooyyzLxPVzMvLkvbeO/2iz7467bM/E/XXzIAqtThunZscAKaMN8DkEcOZwha1quZSFNmh4LAVvnpBqrfiKo3Wf6+KKHwwHJgxA8R0nvqsnIsIPLMvgc+1nuCPvIx12BcHPcUr1OAW8HJBE5Yhtx8QAhnHa0NMiNOKz+QIoQhCI8ezYG8J5AL0c++ED+jBXQk37VTJEW2B37PkpNtUTUGPDOFkyhCCBtdGAWTTeb/4CYibln82rbPkV6KBbam/Nwlao2E6KQoCpC79pxEv0uEuoj3dlE2YC7FrYx4oTL+19HzwHM60kOsXM7qo1BHXEtAIQfYuOnpyo5CP1ZypiTCB8Na8mrDUnl4+vqSNwunSuPC07/eTrKiZV4cSgrPIDLB9ATFVrcQdQYel5UQH94=
+  email: false
