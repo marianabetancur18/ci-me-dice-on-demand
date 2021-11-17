@@ -14,14 +14,12 @@ branches:
 install:
   - pip install -r requirements.txt
   - pip3 install --upgrade pip
-script:
- - python -m unittest tests.test_dice
-
 jobs:
-  fast_finish: true 
   include:
     - stage: unit tests
       script: python -m unittest tests.test_dice
+    - stage: deploy to staging
+      script: skip
     - stage: deploy to staging
       script: skip
       deploy: &heroku
@@ -36,8 +34,5 @@ jobs:
         <<: *heroku
         app: peaceful-brushlands-68941
     - stage: test production
-      script: 'curl https://peaceful-brushlands-68941.herokuapp.com'
-
-  
-    
+      script: 'curl http://sf-stages-production.herokuapp.com'
 
