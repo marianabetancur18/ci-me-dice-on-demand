@@ -17,6 +17,25 @@ install:
 script:
  - python -m unittest tests.test_dice
 
+jobs:
+  include:
+    - stage: unit tests
+      script: python -m unittest tests.test_dice
+    - stage: deploy to staging
+      script: skip
+      deploy: &heroku
+        provider: heroku
+        app: pacific-lake-63914 
+        api_key: $HEROKU_AUTH_TOKEN
+    - stage: test staging
+      script: 'curl http://sf-stages-staging.herokuapp.com'
+    - stage: deploy to production
+      script: skip
+      deploy:
+        <<: *heroku
+        app: peaceful-brushlands-68941
+    - stage: test production
+      script: 'curl http://sf-stages-production.herokuapp.com'
 
   
     
