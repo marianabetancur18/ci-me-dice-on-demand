@@ -1,3 +1,6 @@
 language: python
 rmv:
   -3.0
+before_install:
+  - python -m pip install --upgrade pip
+
