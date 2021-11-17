@@ -17,6 +17,10 @@ install:
 jobs:
   include:
     - stage: checkout
+      install: 
+        - git clone https://github.com/$TRAVIS_REPO_SLUG.git $TRAVIS_REPO_SLUG
+        - cd $TRAVIS_REPO_SLUG
+        - git checkout -qf $TRAVIS_COMMIT
     - stage: unit tests
       script: python -m unittest tests.test_dice
     - stage: deploy to staging
