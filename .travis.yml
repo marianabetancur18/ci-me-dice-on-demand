@@ -37,7 +37,7 @@ jobs:
         <<: *heroku
         app: peaceful-brushlands-68941
     - stage: test production
-      script: 'curl https://peaceful-brushlands-68941.herokuapp.com/'
+      script: 'curl https://peaceful-brushlands-68941.herokuapp.com'
 
 notifications:
   slack:
