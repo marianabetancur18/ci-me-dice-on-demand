@@ -16,3 +16,4 @@ branches:
   only:
     - main
 
+script: python3 test_dice.py
