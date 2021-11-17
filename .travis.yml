@@ -18,6 +18,7 @@ script:
  - python -m unittest tests.test_dice
 
 jobs:
+  fast_finish: true 
   include:
     - stage: unit tests
       script: python -m unittest tests.test_dice
@@ -28,14 +29,14 @@ jobs:
         app: pacific-lake-63914 
         api_key: $HEROKU_AUTH_TOKEN
     - stage: test staging
-      script: 'curl http://sf-stages-staging.herokuapp.com'
+      script: 'curl https://pacific-lake-63914.herokuapp.com/'
     - stage: deploy to production
       script: skip
       deploy:
         <<: *heroku
         app: peaceful-brushlands-68941
     - stage: test production
-      script: 'curl http://sf-stages-production.herokuapp.com'
+      script: 'curl https://peaceful-brushlands-68941.herokuapp.com'
 
   
     
