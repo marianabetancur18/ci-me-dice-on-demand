@@ -16,6 +16,7 @@ install:
   - pip3 install --upgrade pip
 jobs:
   include:
+    - stage: checkout
     - stage: unit tests
       script: python -m unittest tests.test_dice
     - stage: deploy to staging
@@ -34,3 +35,9 @@ jobs:
     - stage: test production
       script: 'curl http://sf-stages-production.herokuapp.com'
 
+notifications:
+  slack: praxisunal:EUjdMHMZdMNbGqln5FEkfJh3
+after_success:
+- echo 'Success!'
+after_failure:
+- echo 'Failure'
